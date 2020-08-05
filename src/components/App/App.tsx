@@ -1,15 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import { Blog } from '../Blog';
+import { Blog, BlogPost } from '../Blog';
 
 export const App = () => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<h1>Blog</h1>
-				<Blog />
-			</header>
-		</div>
+		<Router>
+			<div className="App">
+				<header className="App-header">
+					<h1>Blog</h1>
+				</header>
+				<Route exact path="/" render={() => <Blog />} />
+				<Route path="/blog" component={BlogPost} />
+			</div>
+		</Router>
 	);
 };
 

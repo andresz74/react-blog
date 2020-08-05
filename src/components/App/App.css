@@ -1,6 +1,9 @@
 .App {
-  margin: auto;
-  width: 90%;
+	margin: auto;
+	width: 90%;
+}
+a {
+	color: gray;
 }
 /* 
 .App-logo {

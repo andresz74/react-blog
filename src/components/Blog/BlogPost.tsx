@@ -1,38 +1,36 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
+import { firebaseConfig } from '../../firebase.configuration';
 
 export interface ComponentProps {
-	// post?: string;
+	postRef: string;
 }
 
-const firebaseConfig = {
-	apiKey: 'AIzaSyDOEQJXdOtapUx0GpC4VWeZzqVdRP_p3HA',
-	authDomain: 'reactblogmd.firebaseapp.com',
-	databaseURL: 'https://reactblogmd.firebaseio.com',
-	projectId: 'reactblogmd',
-	storageBucket: 'reactblogmd.appspot.com',
-	messagingSenderId: '534489159944',
-	appId: '1:534489159944:web:c4118dc184b020d793f4bd',
-};
 // gs://reactblogmd.appspot.com/assets/md/post.md
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+	firebase.initializeApp(firebaseConfig);
+}
 const storage = firebase.storage();
 
-export const BlogPost: React.FC<ComponentProps> = ({}) => {
+export const BlogPost: React.FC<ComponentProps> = ({ postRef }) => {
 	const [post, setPost] = React.useState('');
 
 	const getPost = async () => {
-		const gsReference = storage.refFromURL('gs://reactblogmd.appspot.com/assets/md/post.md');
-		gsReference.getDownloadURL().then(url => {
-			fetch(url)
-				.then(res => res.text())
-				.then(text => setPost(text));
-		});
+		// const gsReference = storage.refFromURL(`'gs://reactblogmd.appspot.com/assets/md/2020.08.03.md'`);
+		const gsReference = storage.refFromURL(`gs://${postRef}`);
+		gsReference
+			.getDownloadURL()
+			.then(url => {
+				fetch(url)
+					.then(res => res.text())
+					.then(text => setPost(text))
+					.catch(e => console.warn(e));
+			})
+			.catch(e => console.warn(e));
 	};
 	React.useEffect(() => {
 		getPost();
