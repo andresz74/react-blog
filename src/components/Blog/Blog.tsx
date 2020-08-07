@@ -16,9 +16,11 @@ export interface refItemInterface {
 	postId: string;
 }
 
+export interface ComponentProps {}
+
 const storage = firebase.storage();
 
-export const Blog = () => {
+export const Blog: React.FC<ComponentProps> = () => {
 	const [listref, setListRef] = React.useState<refItemInterface[]>([]);
 	React.useEffect(() => {
 		const gsReference = storage.refFromURL(`${firebaseStorageUrl}/${firebaseAssetsMd}`);

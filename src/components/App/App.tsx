@@ -11,7 +11,7 @@ export const App = () => {
 					<h1>Blog</h1>
 				</header>
 				<Route exact path="/" render={() => <Blog />} />
-				<Route path="/blog" component={BlogPost} />
+				<Route path="/blog/:id" component={BlogPost} />
 			</div>
 		</Router>
 	);
