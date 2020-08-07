@@ -1,0 +1,1 @@
+export { ImageRender } from './Image';

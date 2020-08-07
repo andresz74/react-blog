@@ -1,0 +1,1 @@
+export { HeadingRender } from './Heading';

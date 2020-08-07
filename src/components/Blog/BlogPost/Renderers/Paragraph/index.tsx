@@ -1,0 +1,1 @@
+export { ParagrapRender } from './Paragraph';

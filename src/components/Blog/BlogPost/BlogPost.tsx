@@ -7,11 +7,9 @@ import 'firebase/auth';
 import 'firebase/storage';
 import { firebaseConfig, firebaseStorageUrl, firebaseAssetsMd } from '../../../firebase.configuration';
 import { Loading } from '../../Common';
-import { ImageRender } from './Renderers/Image/Image';
+import { HeadingRender, ImageRender, ParagrapRender } from './Renderers';
 
-export interface ComponentProps {
-	// postRef: string;
-}
+export interface ComponentProps {}
 
 export type AllProps = ComponentProps & RouteComponentProps;
 
@@ -26,7 +24,9 @@ if (!firebase.apps.length) {
 const storage = firebase.storage();
 
 const renderers = {
+	heading: HeadingRender,
 	image: ImageRender,
+	paragraph: ParagrapRender,
 };
 
 export const BlogPost: React.FC<AllProps> = ({ match }) => {
