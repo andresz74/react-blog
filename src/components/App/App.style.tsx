@@ -23,5 +23,6 @@ export const appLight = s({
 export const appBox = s({
     margin: 'auto',
     maxWidth: '61.8%',
-	minHeight: '100vh',
+    minHeight: '100vh',
+    paddingBottom: '100px',
 });
