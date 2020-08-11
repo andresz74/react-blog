@@ -1,22 +1,26 @@
 import { style as s } from 'typestyle';
+import { Text, Helper } from 'style';
 
 export const heading1 = s({
-	fontSize: '40px',
+	fontSize: Helper.remPb(40),
+	fontWeight: 400,
 	lineHeight: '1.23',
-	marginTop: '30px',
+	marginTop: Helper.remPb(30),
 });
 
 export const heading2 = s({
-	fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif`,
-	fontSize: '36px',
+	fontFamily: Text.Font.secondary,
+	fontSize: Helper.remPb(36),
+	fontWeight: 400,
 	lineHeight: '1.12',
-	marginTop: '45px',
+	marginTop: Helper.remPb(45),
 });
 
 export const heading3 = s({
-	fontSize: '21px',
+	fontSize: Helper.remPb(21),
+	fontWeight: 400,
 	lineHeight: '1.58',
-	marginTop: '42px',
+	marginTop: Helper.remPb(42),
 });
 
 export const heading4 = s({});

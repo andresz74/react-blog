@@ -1,8 +1,9 @@
 import { style as s } from 'typestyle';
+import { Helper } from 'style';
 
 export const paragraph = s({
-    fontSize: '21px',
-    letterSpacing: '-0.063px',
-	lineHeight: '32px',
-	marginTop: '42px',
+	fontSize: Helper.remPb(21),
+	letterSpacing: Helper.remPb(-0.063),
+	lineHeight: Helper.remPb(32),
+	marginTop: Helper.remPb(42),
 });

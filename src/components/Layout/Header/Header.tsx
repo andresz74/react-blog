@@ -1,6 +1,7 @@
 import React from 'react';
 
 import * as style from './Header.style';
+import { Link } from 'react-router-dom';
 
 export interface ComponentProps {
 	theme: string;
@@ -12,7 +13,9 @@ export const Header: React.FC<ComponentProps> = ({ theme, onChange }) => {
 		<header className={style.appHeader}>
 			<div className={style.headerBox}>
 				<div className={style.blogTitle}>
+					<Link to="/">
 					<h1>Blog</h1>
+					</Link>
 				</div>
 				<div className={style.themeOptions}>
 					<label>

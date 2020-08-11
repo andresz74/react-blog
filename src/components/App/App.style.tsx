@@ -1,28 +1,30 @@
 import { style as s } from 'typestyle';
+import { Color, Helper, Text } from 'style';
 
 export const appDark = s({
-	backgroundColor: '#282c34',
-	color: '#fff',
+	backgroundColor: Color.dark.main,
+    color: Color.dark.secondary,
 	$nest: {
 		a: {
-			color: 'gray',
+			color: Color.dark.link,
 		},
 	},
 });
 
 export const appLight = s({
-	backgroundColor: '#fff',
-	color: '#282c34',
+	backgroundColor: Color.light.main,
+	color: Color.light.secondary,
 	$nest: {
 		a: {
-			color: 'gray',
+			color: Color.light.link,
 		},
 	},
 });
 
 export const appBox = s({
-    margin: 'auto',
-    maxWidth: '61.8%',
-    minHeight: '100vh',
-    paddingBottom: '100px',
+    fontFamily: Text.Font.primary,
+	margin: 'auto',
+	maxWidth: '61.8%',
+	minHeight: '100vh',
+	paddingBottom: Helper.remPb(100),
 });

@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as style from './App.style';
 import { Blog, BlogPost } from '../Blog';
 import { Header } from '../Layout/Header/Header';
+import * as Models from '../../models';
 
 export const App = () => {
-	const [theme, setTheme] = React.useState('dark');
+	const [theme, setTheme] = React.useState<Models.ThemeType>('light');
 	const handleOptionChange = (e: any) => {
 		setTheme(e.target.value);
 	};
