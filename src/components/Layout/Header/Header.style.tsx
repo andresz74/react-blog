@@ -39,14 +39,14 @@ export const themeOptions = s({
 });
 
 export const switchBox = s({
-	height: '20px',
+	height: '1.5rem',
 	position: 'relative',
 });
 
 export const radioButton = s({
-	height: '3rem',
-	width: '6rem',
-	left: '6rem',
+	height: '100%',
+	width: '2.5rem',
+	left: '2.5rem',
 	margin: 0,
 
 	position: 'absolute',
@@ -61,13 +61,9 @@ export const radioButton = s({
 	},
 });
 
-export const toggleDark = s({
-	left: '0.25rem', // left: 3.25rem;
-});
+export const darkLabel = s({});
 
-export const toggleLight = s({
-	left: '1.75rem',
-});
+export const lightLabel = s({});
 
 export const toggleOutside = s({
 	height: '100%',
@@ -75,17 +71,34 @@ export const toggleOutside = s({
 	padding: '2px',
 	overflow: 'hidden',
 	transition: '0.25s ease all',
-	background: 'red',
 	position: 'absolute',
 	width: '3rem',
-	left: '6rem',
+	left: '3rem',
+});
+
+export const toogleOutsideDark = s({
+	backgroundColor: Color.dark.secondary,
+});
+
+export const toggleOutsideLight = s({
+	backgroundColor: Color.light.secondary,
 });
 
 export const toggleInside = s({
 	borderRadius: '5rem',
-	background: '#4a4a4a',
 	position: 'absolute',
 	transition: '0.25s ease all',
-	height: '16px',
-	width: '16px',
+	height: '1.25rem',
+	width: '1.25rem',
+	padding: '3px',
+});
+
+export const toggleInsideDark = s({
+	background: Color.dark.main,
+	left: '0.25rem',
+});
+
+export const toggleInsideLight = s({
+	backgroundColor: Color.light.main,
+	left: '1.5rem',
 });

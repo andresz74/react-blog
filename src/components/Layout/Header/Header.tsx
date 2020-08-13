@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { classes } from 'typestyle';
 
 import * as style from './Header.style';
-import { classes } from 'typestyle';
+import { Image } from 'components';
 
 export interface ComponentProps {
 	blogName: string;
@@ -30,12 +31,40 @@ export const Header: React.FC<ComponentProps> = ({ blogName, theme, onChange }) 
 						<span>Light</span>
 					</label> */}
 					<div className={style.switchBox}>
-						<input className={style.radioButton} id="dark" type="radio" name="theme" value="dark" checked={theme === 'dark'} onChange={onChange}/>
-						<label htmlFor="dark">dark</label>
-						<input className={style.radioButton} id="light" type="radio" name="theme" value="light" checked={theme === 'light'} onChange={onChange}/>
-						<label htmlFor="light">light</label>
-						<span className={style.toggleOutside}>
-							<span className={classes(style.toggleInside, theme === 'dark'? style.toggleDark : style.toggleLight )}></span>
+						<input
+							className={style.radioButton}
+							id="dark"
+							type="radio"
+							name="theme"
+							value="dark"
+							checked={theme === 'dark'}
+							onChange={onChange}
+						/>
+						<label className={style.darkLabel} htmlFor="dark"></label>
+						<input
+							className={style.radioButton}
+							id="light"
+							type="radio"
+							name="theme"
+							value="light"
+							checked={theme === 'light'}
+							onChange={onChange}
+						/>
+						<label className={style.darkLabel} htmlFor="light"></label>
+						<span
+							className={classes(
+								style.toggleOutside,
+								theme === 'dark' ? style.toogleOutsideDark : style.toggleOutsideLight,
+							)}
+						>
+							<span
+								className={classes(
+									style.toggleInside,
+									theme === 'dark' ? style.toggleInsideDark : style.toggleInsideLight,
+								)}
+							>
+								<Image srcImage={theme === 'dark' ? './moon.svg' : './sun.svg'} />
+							</span>
 						</span>
 					</div>
 				</div>
