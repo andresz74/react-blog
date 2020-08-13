@@ -1,16 +1,22 @@
 import { style as s } from 'typestyle';
+import { Helper, Text } from 'style';
+
+export const imageBox = s({
+    display: 'block',
+	margin: 'auto',
+	maxWidth: Helper.goldenRatio,
+})
 
 export const image = s({
     display: 'block',
-    margin: 'auto',
-    maxWidth: '61.8%',
+    width: '100%',
 });
 
-export const imageTitle = s({
-    color: 'gray',
-    display: 'block',
-    margin: 'auto',
-    marginBottom: '15px',
-    marginTop: '5px',
-    maxWidth: '61.8%',
+export const imageTitle = s(Text.base[14], {
+	color: 'gray',
+	display: 'block',
+    fontFamily: Text.Font.secondary,
+    lineHeight: 1,
+	marginBottom: Helper.remPb(15),
+	marginTop: Helper.remPb(5),
 });

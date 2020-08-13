@@ -13,4 +13,5 @@ export enum light {
 export enum baseline {
     transparent = 'transparent',
 	darkLink = '#282c34',
+	lightLink = '#fff',
 }
