@@ -45,8 +45,8 @@ export const switchBox = s({
 
 export const radioButton = s({
 	height: '100%',
-	width: '2.5rem',
-	left: '2.5rem',
+	width: '3rem',
+	left: '3rem',
 	margin: 0,
 
 	position: 'absolute',
@@ -68,7 +68,7 @@ export const lightLabel = s({});
 export const toggleOutside = s({
 	height: '100%',
 	borderRadius: '2rem',
-	padding: '2px',
+	padding: '1px',
 	overflow: 'hidden',
 	transition: '0.25s ease all',
 	position: 'absolute',
@@ -88,8 +88,8 @@ export const toggleInside = s({
 	borderRadius: '5rem',
 	position: 'absolute',
 	transition: '0.25s ease all',
-	height: '1.25rem',
-	width: '1.25rem',
+	height: '1.35rem',
+	width: '1.35rem',
 	padding: '3px',
 });
 
