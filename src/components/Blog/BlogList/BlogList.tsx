@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { refItemInterface } from './Blog';
+import { refItemInterface } from '../Blog/Blog';
 
 export interface ComponentProps {
 	listRef: refItemInterface[];

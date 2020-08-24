@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
-import { firebaseConfig, firebaseStorageUrl, firebaseAssetsMd } from '../../../firebase.configuration';
+import { firebaseConfig, firebaseStorageUrl, firebaseAssetsMd } from 'firebase.configuration';
 import { Loading } from '../../Common';
 import { HeadingRender, ImageRender, ParagrapRender } from './Renderers';
 
@@ -17,7 +17,7 @@ export interface ParamsInterface {
 	id?: string;
 }
 
-// gs://reactblogmd.appspot.com/assets/md/post.md
+// Initialize Firebase if it hasn't been initialize by other component
 if (!firebase.apps.length) {
 	firebase.initializeApp(firebaseConfig);
 }
@@ -34,7 +34,6 @@ export const BlogPost: React.FC<AllProps> = ({ match }) => {
 	const [post, setPost] = React.useState('');
 
 	const getPost = async (filename: string) => {
-		// const gsReference = storage.refFromURL(`'gs://reactblogmd.appspot.com/assets/md/2020.08.03.md'`);
 		const gsReference = storage.refFromURL(`${firebaseStorageUrl}/${firebaseAssetsMd}/${filename}.md`);
 		gsReference
 			.getDownloadURL()
@@ -51,7 +50,7 @@ export const BlogPost: React.FC<AllProps> = ({ match }) => {
 	};
 	React.useEffect(() => {
 		const params: ParamsInterface = match.params;
-		const postFile: string = params.id ? params.id.split('-').join('.') : '';
+		const postFile: string = params.id ? params.id : '';
 		getPost(postFile);
 	}, [match.params]);
 	return loading ? (

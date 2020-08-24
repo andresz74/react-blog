@@ -1,10 +1,11 @@
 import React from 'react';
+import { Image } from '../Image';
 
 export const Loading = () => {
 	return (
 		<>
 			Loading...
-			<img src="./Loading.svg" alt="Loading" />
+			<Image srcImage={'./Loading.svg'} altText={'Loading'} />
 		</>
 	);
 };

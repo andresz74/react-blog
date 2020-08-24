@@ -3,7 +3,7 @@ import { Color, Helper, Text } from 'style';
 
 export const appDark = s({
 	backgroundColor: Color.dark.main,
-    color: Color.dark.secondary,
+	color: Color.dark.secondary,
 	$nest: {
 		a: {
 			color: Color.dark.link,
@@ -22,9 +22,9 @@ export const appLight = s({
 });
 
 export const appBox = s({
-    fontFamily: Text.Font.primary,
+	fontFamily: Text.Font.primary,
 	margin: 'auto',
-	maxWidth: '61.8%',
+	maxWidth: Helper.goldenRatio,
 	minHeight: '100vh',
 	paddingBottom: Helper.remPb(100),
 });

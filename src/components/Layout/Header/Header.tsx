@@ -63,7 +63,10 @@ export const Header: React.FC<ComponentProps> = ({ blogName, theme, onChange }) 
 									theme === 'dark' ? style.toggleInsideDark : style.toggleInsideLight,
 								)}
 							>
-								<Image srcImage={theme === 'dark' ? './moon.svg' : './sun.svg'} />
+								<Image
+									srcImage={theme === 'dark' ? './moon.svg' : './sun.svg'}
+									altText={theme === 'dark' ? 'moon' : 'sun'}
+								/>
 							</span>
 						</span>
 					</div>

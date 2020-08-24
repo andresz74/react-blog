@@ -68,7 +68,7 @@ export const lightLabel = s({});
 export const toggleOutside = s({
 	height: '100%',
 	borderRadius: '2rem',
-	padding: '1px',
+	padding: Helper.remPb(1),
 	overflow: 'hidden',
 	transition: '0.25s ease all',
 	position: 'absolute',
@@ -88,14 +88,14 @@ export const toggleInside = s({
 	borderRadius: '5rem',
 	position: 'absolute',
 	transition: '0.25s ease all',
-	height: '1.35rem',
-	width: '1.35rem',
-	padding: '3px',
+	height: '1.4rem',
+	width: '1.4rem',
+	padding: Helper.remPb(3),
 });
 
 export const toggleInsideDark = s({
 	background: Color.dark.main,
-	left: '0.25rem',
+	left: '0.05rem',
 });
 
 export const toggleInsideLight = s({
