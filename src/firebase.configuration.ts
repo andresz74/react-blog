@@ -11,3 +11,5 @@ export const firebaseConfig = {
 export const firebaseStorageUrl = 'gs://reactblogmd.appspot.com';
 
 export const firebaseAssetsMd = 'assets/md';
+
+export const blogDbCollection = 'blog'

@@ -17,7 +17,7 @@ export const App = () => {
 			<div className={theme === 'dark' ? style.appDark : style.appLight}>
 				<Header theme={theme} onChange={handleOptionChange} blogName={blogName} />
 				<main className={style.appBox}>
-					<Route exact path="/" render={() => <Blog />} />
+					<Route exact path="/" render={() => <Blog theme={theme} />} />
 					<Route path="/blog/:id" component={BlogPost} />
 					<Route path="/newpost" component={BlogPostUpload} />
 				</main>

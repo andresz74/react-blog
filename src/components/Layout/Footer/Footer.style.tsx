@@ -3,6 +3,6 @@ import { Helper } from 'style';
 
 export const appFooter = s({
 	margin: 'auto',
-	marginBottom: Helper.remPb(150),
+	paddingBottom: Helper.remPb(150),
 	maxWidth: Helper.goldenRatio,
 });

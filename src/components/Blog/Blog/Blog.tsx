@@ -3,46 +3,46 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
-import { firebaseConfig, firebaseStorageUrl, firebaseAssetsMd } from 'firebase.configuration';
-import { BlogList } from '../BlogList/BlogList';
+import { firebaseConfig, firebaseStorageUrl, firebaseAssetsMd, blogDbCollection } from 'firebase.configuration';
+import { BlogPostInterface } from 'models';
+import { BlogList } from 'components';
 
 // Initialize Firebase if it hasn't been initialize by other component
+let app;
 if (!firebase.apps.length) {
-	firebase.initializeApp(firebaseConfig);
+	app = firebase.initializeApp(firebaseConfig);
 }
 
-export interface refItemInterface {
-	postUrl: string;
-	postId: string;
+export interface ComponentProps {
+	theme: string
 }
-
-export interface ComponentProps {}
 
 // Initialize Firebase Storage
-const storage = firebase.storage();
+// const storage = firebase.storage();
+const db = firebase.firestore(app);
+const blogRef = db.collection(blogDbCollection);
+const getBlogList = async () => {
+	const snapshot = await blogRef.get();
+	const data: BlogPostInterface[] = [];
+	snapshot.forEach(doc => {
+		data.push({
+			blogId: doc.id,
+			blogTitle: doc.data().title,
+			blogIntro: doc.data().intro,
+			blogImage: doc.data().image,
+			blogTags: doc.data().tags,
+			blogDate: doc.data().date,
+		});
+	});
+	return data;
+};
 
-export const Blog: React.FC<ComponentProps> = () => {
-	const [listref, setListRef] = React.useState<refItemInterface[]>([]);
+export const Blog: React.FC<ComponentProps> = ({theme}) => {
+	const [blogList, setBlogList] = React.useState<BlogPostInterface[]>([]);
 	React.useEffect(() => {
-		// get assets reference from Firebase
-		const gsReference = storage.refFromURL(`${firebaseStorageUrl}/${firebaseAssetsMd}`);
-		const list: refItemInterface[] = [];
-		gsReference
-			.listAll()
-			.then(res => {
-				// res.prefixes.forEach(f => console.log(f));
-				res.items.forEach(i => {
-					console.log(i)
-					list.push({
-						postUrl: `${i.bucket}/${i.fullPath}`,
-						postId: i.fullPath.split(`${firebaseAssetsMd}/`).join('').split('.md').join(''),
-					});
-				});
-				setListRef(list);
-			})
-			.catch(e => console.warn(e));
+		getBlogList().then(response => setBlogList(response));
 	}, []);
-	return <BlogList listRef={listref} />;
+	return <BlogList theme={theme} listRef={blogList} />;
 };
 
 Blog.displayName = 'Blog';

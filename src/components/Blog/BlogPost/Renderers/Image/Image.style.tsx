@@ -4,10 +4,10 @@ import { Helper, Text } from 'style';
 export const imageBox = s({
     display: 'block',
 	margin: 'auto',
-	maxWidth: Helper.goldenRatio,
 })
 
 export const image = s({
+	borderRadius: Helper.remPb(5),
     display: 'block',
     width: '100%',
 });
